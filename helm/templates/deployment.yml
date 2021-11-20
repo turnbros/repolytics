@@ -13,24 +13,24 @@ spec:
     spec:      
       serviceAccountName: default
       securityContext:
-        fsGroup: {{ .security.pod_fs_group }}
+        fsGroup: {{ .Values.security.pod_fs_group }}
       containers:
         - name: {{ $.Chart.Name }}
-          image: "{{ .image.repo }}:{{ .image.tag }}"
-          imagePullPolicy: {{ .image.pull_policy }}
+          image: "{{ .Values.image.repo }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pull_policy }}
           securityContext:
             capabilities:
                 drop:
                 - ALL
-            readOnlyRootFilesystem: {{ .security.read__only_root_filesystem }}
-            runAsGroup: {{ .security.run_as_group }}
-            runAsNonRoot: {{ .security.run_as_non_root }}
-            runAsUser: {{ .security.run_as_user }}
+            readOnlyRootFilesystem: {{ .Values.security.read__only_root_filesystem }}
+            runAsGroup: {{ .Values.security.run_as_group }}
+            runAsNonRoot: {{ .Values.security.run_as_non_root }}
+            runAsUser: {{ .Values.security.run_as_user }}
           env:
-            {{ range $key, $value := .environment_variables }}
+            {{ range $key, $value := .Values.environment_variables }}
             - name: {{ $key | quote }}
               value: {{ $value | quote }}
             {{- end }}
             envFrom:
               - secretRef:
-                  name: {{ .secret_environment_variables }}
+                  name: {{ .Values.secret_environment_variables }}
