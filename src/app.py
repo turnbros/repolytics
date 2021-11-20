@@ -40,4 +40,4 @@ if __name__ == "__main__":
   while True:
     print(os.getenv("ES_PASSWORD"))
     collect_repo_stats()
-    time.sleep(2.4)
+    time.sleep(30)
