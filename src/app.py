@@ -18,7 +18,7 @@ def collect_repo_stats():
     for github_repo_stat in github_repo_stats:
       elastic_output.index_repo_stat("github_repo_stat", github_repo_stat, github_es_index)
   except Exception as error:
-    log.error("Failed to collect Terraform repo stats")
+    log.error("Failed to collect Github repo stats")
     log.error(error)
 
   ###############
@@ -40,4 +40,4 @@ if __name__ == "__main__":
   while True:
     print(os.getenv("ES_PASSWORD"))
     collect_repo_stats()
-    time.sleep(30)
+    time.sleep(60)
