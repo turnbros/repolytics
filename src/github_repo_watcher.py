@@ -53,6 +53,7 @@ def get_repo_stats(repo_list:list=github_repos) -> list:
       })
 
     repo_stats.append({
+      "repo_name": repo_name,
       "open_issues": repo_open_issues.totalCount,
       "stars": repo_stars,
       "top_paths": repo_stats_top_paths,
