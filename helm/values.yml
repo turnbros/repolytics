@@ -1,0 +1,31 @@
+---
+
+name: repolytics
+
+image:
+  pull_policy: Always
+  repo: ghcr.io/turnbros/repolytics/repolytics:latest
+  tag: latest
+
+secret_environment_variables: repolytics-auth
+
+environment_variables:
+  - name: ES_ENDPOINT
+    value: ""
+  - name: ES_USERNAME
+    value: ""
+  - name: GITHUB_ES_INDEX
+    value: ""
+  - name: GITHUB_REPOS
+    value: ""
+  - name: REGISTRY_ES_INDEX
+    value: ""
+  - name: REGISTRY_REPOS
+    value: ""
+
+security:
+  run_as_user: 1000
+  run_as_group: 1000
+  pod_fs_group: 1000
+  run_as_non_root: true
+  read__only_root_filesystem: true

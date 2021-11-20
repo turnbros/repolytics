@@ -1,0 +1,6 @@
+apiVersion: v2
+name: repolytics
+version: 1.0.0
+maintainers:
+  - name: Dylan Turnbull
+    email: dylanturn@gmail.com
