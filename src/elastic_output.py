@@ -20,7 +20,7 @@ es = Elasticsearch(
 def index_repo_stat(document_type: str, document_body: dict, es_repo_index: str):
 	document_body["@timestamp"] = datetime.now().utcnow()
 	return es.index(
-			index = f"{es_root_index}_{es_repo_index}",
+			index = f"{es_root_index}-{es_repo_index}",
 			doc_type = document_type,
 			id = uuid.uuid4(),
 			body = document_body
