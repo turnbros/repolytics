@@ -30,6 +30,7 @@ def get_repo_stats(repo_list:list=github_repos) -> list:
     
     repo_open_issues = repo.get_issues(state='open')
     repo_stars = repo.stargazers_count
+    repo_forks = repo.forks
     repo_top_referrers = repo.get_top_referrers()
     repo_top_paths = repo.get_top_paths()
     repo_clone_traffic = repo.get_clones_traffic()
@@ -55,6 +56,7 @@ def get_repo_stats(repo_list:list=github_repos) -> list:
     repo_stats.append({
       "repo_name": repo_name,
       "open_issues": repo_open_issues.totalCount,
+      "forks": repo_forks,
       "stars": repo_stars,
       "top_paths": repo_stats_top_paths,
       "top_referrers": repo_stats_top_referrers,
