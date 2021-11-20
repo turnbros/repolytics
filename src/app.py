@@ -1,4 +1,5 @@
 import os
+import time
 import elastic_output
 import github_repo_watcher
 import terraform_repo_watcher
@@ -36,4 +37,7 @@ def collect_repo_stats():
 
 
 if __name__ == "__main__":
-  collect_repo_stats()
+  while True:
+    print(os.getenv("ES_PASSWORD"))
+    collect_repo_stats()
+    time.sleep(2.4)
