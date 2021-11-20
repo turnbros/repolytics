@@ -1,4 +1,6 @@
 secrets.env
+secrets.yml
+secret_values.yml
 .vscode
 
 # Byte-compiled / optimized / DLL files
