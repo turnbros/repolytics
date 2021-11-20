@@ -4,6 +4,8 @@ kind: Deployment
 metadata:
   name: {{ .Values.name }}
   namespace: {{ $.Release.Namespace }}
+  lables:
+    app: repolytics
 spec:
   selector:
     matchLabels:
