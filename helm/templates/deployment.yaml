@@ -4,12 +4,11 @@ kind: Deployment
 metadata:
   name: {{ .Values.name }}
   namespace: {{ $.Release.Namespace }}
-  lables:
-    app: repolytics
 spec:
   selector:
     matchLabels:
-      app: repolytics
+      app.kubernetes.io/name: {{ .Values.name }}
+        app.kubernetes.io/instance: {{ $.Release.Name }}
   template:
     metadata:
       labels:
